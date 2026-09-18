@@ -93,29 +93,112 @@
 
   <main class="main-content">
 
-    <header class="topbar">
+<header class="topbar">
 
-      <div>
-        <span class="breadcrumb">
-          SmartERP
-        </span>
+  <!-- Left -->
+  <div class="topbar-left">
+
+    <span class="breadcrumb">
+      SmartERP
+    </span>
+
+    <div class="global-search">
+
+  <span class="search-icon">
+    🔍
+  </span>
+
+
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Search menu, item, purchase..."
+    (keyup.enter)="onSearch()"
+  />
+
+
+  <!-- Clear -->
+  <button
+    *ngIf="searchText"
+    type="button"
+    class="clear-btn"
+    (click)="searchText = ''">
+
+    ×
+
+  </button>
+
+
+  <!-- Mic -->
+  <button
+    type="button"
+    class="mic-btn"
+    (click)="startVoiceSearch()"
+    [class.listening]="isListening"
+    [title]="isListening ? 'Stop Voice Search' : 'Voice Search'">
+
+    <span *ngIf="!isListening">
+      🎙️
+    </span>
+
+    <span *ngIf="isListening" (click)="stopVoiceSearch()">
+      🔴
+    </span>
+
+  </button>
+
+
+  <!-- Search Results -->
+
+  <div
+    class="search-results"
+    *ngIf="searchText && searchResults.length > 0">
+
+    <div
+      class="search-result-item"
+      *ngFor="let menu of searchResults"
+      (click)="openSearchResult(menu)">
+
+      <span class="result-icon">
+        {{ menu.icon }}
+      </span>
+
+      <div class="result-content">
+
+        <strong>
+          {{ menu.name }}
+        </strong>
+
+        <small>
+          Open {{ menu.name }}
+        </small>
+
       </div>
 
+    </div>
 
-      <div class="top-actions">
+  </div>
 
-        <button class="notification">
-          🔔
-          <span></span>
-        </button>
+</div>
 
-        <div class="profile">
-          SK
-        </div>
+  </div>
 
-      </div>
 
-    </header>
+  <!-- Right -->
+  <div class="top-actions">
+
+    <button class="notification">
+      🔔
+      <span></span>
+    </button>
+
+    <div class="profile">
+      SK
+    </div>
+
+  </div>
+
+</header>
 
 
     <section class="page-content">

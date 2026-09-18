@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -18,7 +19,7 @@ import { StockIssueComponent } from './pages/stock-issue/stock-issue.component';
     StockIssueComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,FormsModule,
     AppRoutingModule,ItemsComponent
   ],
   providers: [],

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 interface Item {
   code: string;
   name: string;
@@ -14,7 +14,7 @@ interface Item {
 @Component({
   selector: 'app-items',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.scss']
 })
