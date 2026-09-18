@@ -1,0 +1,193 @@
+<div class="page-header">
+
+  <div>
+    <h1>Dashboard</h1>
+    <p>Welcome back! Here's your ERP overview.</p>
+  </div>
+
+  <button class="primary-btn">
+    + New Transaction
+  </button>
+
+</div>
+
+
+<!-- Statistics -->
+
+<div class="stats-grid">
+
+  <div class="stat-card">
+
+    <div class="stat-icon blue">
+      📦
+    </div>
+
+    <div>
+      <span>Total Items</span>
+      <h2>1,248</h2>
+      <small>↑ 8.4% this month</small>
+    </div>
+
+  </div>
+
+
+  <div class="stat-card">
+
+    <div class="stat-icon green">
+      🛒
+    </div>
+
+    <div>
+      <span>Purchase Orders</span>
+      <h2>186</h2>
+      <small>↑ 5.2% this month</small>
+    </div>
+
+  </div>
+
+
+  <div class="stat-card">
+
+    <div class="stat-icon orange">
+      📤
+    </div>
+
+    <div>
+      <span>Stock Issues</span>
+      <h2>324</h2>
+      <small>↑ 12.1% this month</small>
+    </div>
+
+  </div>
+
+
+  <div class="stat-card">
+
+    <div class="stat-icon purple">
+      💰
+    </div>
+
+    <div>
+      <span>Inventory Value</span>
+      <h2>₹24.8L</h2>
+      <small>↑ 6.8% this month</small>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Content -->
+
+<div class="dashboard-grid">
+
+  <div class="dashboard-card">
+
+    <div class="card-header">
+
+      <div>
+        <h3>Recent Transactions</h3>
+        <p>Latest ERP activities</p>
+      </div>
+
+      <button>View All</button>
+
+    </div>
+
+
+    <div class="transaction">
+
+      <div class="transaction-icon">
+        PO
+      </div>
+
+      <div>
+        <strong>Purchase Order #PO-10245</strong>
+        <span>Steel Department</span>
+      </div>
+
+      <b>₹1,25,000</b>
+
+    </div>
+
+
+    <div class="transaction">
+
+      <div class="transaction-icon">
+        SI
+      </div>
+
+      <div>
+        <strong>Stock Issue #SI-4521</strong>
+        <span>Main Warehouse</span>
+      </div>
+
+      <b>₹32,500</b>
+
+    </div>
+
+
+    <div class="transaction">
+
+      <div class="transaction-icon">
+        GR
+      </div>
+
+      <div>
+        <strong>GRN #GRN-7812</strong>
+        <span>Central Store</span>
+      </div>
+
+      <b>₹86,200</b>
+
+    </div>
+
+  </div>
+
+
+  <div class="dashboard-card">
+
+    <div class="card-header">
+
+      <div>
+        <h3>Quick Actions</h3>
+        <p>Frequently used modules</p>
+      </div>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+      <button routerLink="/items">
+        <span>📦</span>
+        <div>
+          <strong>Add Item</strong>
+          <small>Create new inventory item</small>
+        </div>
+      </button>
+
+
+      <button routerLink="/purchase">
+        <span>🛒</span>
+        <div>
+          <strong>Purchase Order</strong>
+          <small>Create purchase order</small>
+        </div>
+      </button>
+
+
+      <button routerLink="/stock-issue">
+        <span>📤</span>
+        <div>
+          <strong>Stock Issue</strong>
+          <small>Issue material from store</small>
+        </div>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

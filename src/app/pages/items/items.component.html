@@ -1,0 +1,119 @@
+<div class="page-header">
+
+  <div>
+    <h1>Items</h1>
+    <p>Manage inventory items and stock information.</p>
+  </div>
+
+  <button class="primary-btn">
+    + Add Item
+  </button>
+
+</div>
+
+
+<div class="content-card">
+
+  <div class="toolbar">
+
+    <div class="search-box">
+
+      <span>⌕</span>
+
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        placeholder="Search item...">
+
+    </div>
+
+    <button class="filter-btn">
+      ⚙ Filter
+    </button>
+
+  </div>
+
+
+  <div class="table-wrapper">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ITEM CODE</th>
+          <th>ITEM NAME</th>
+          <th>CATEGORY</th>
+          <th>UNIT</th>
+          <th>STOCK</th>
+          <th>RATE</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr *ngFor="let item of filteredItems">
+
+          <td>
+            <strong class="item-code">
+              {{ item.code }}
+            </strong>
+          </td>
+
+          <td>
+            <strong>
+              {{ item.name }}
+            </strong>
+          </td>
+
+          <td>
+            {{ item.category }}
+          </td>
+
+          <td>
+            {{ item.unit }}
+          </td>
+
+          <td>
+            {{ item.stock | number }}
+          </td>
+
+          <td>
+            ₹{{ item.rate }}
+          </td>
+
+          <td>
+
+            <span
+              class="status"
+              [class.inactive]="item.status !== 'Active'">
+
+              {{ item.status }}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <button class="action-btn">
+              ⋮
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
