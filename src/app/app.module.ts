@@ -9,7 +9,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ItemsComponent } from './pages/items/items.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { StockIssueComponent } from './pages/stock-issue/stock-issue.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { StockIssueComponent } from './pages/stock-issue/stock-issue.component';
     StockIssueComponent
   ],
   imports: [
-    BrowserModule,FormsModule,
+    BrowserModule,FormsModule,HttpClientModule,
     AppRoutingModule,ItemsComponent
   ],
   providers: [],

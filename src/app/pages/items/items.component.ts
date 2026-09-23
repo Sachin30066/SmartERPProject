@@ -1,91 +1,76 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-interface Item {
-  code: string;
-  name: string;
-  category: string;
-  unit: string;
-  stock: number;
-  rate: number;
-  status: string;
-}
+import { ItemService, Item } from '../../services/item.service';
 
 @Component({
   selector: 'app-items',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.scss']
 })
-export class ItemsComponent {
+export class ItemsComponent implements OnInit {
 
   searchText = '';
 
-  items: Item[] = [
+  items: Item[] = [];
 
-    {
-      code: 'ITM-001',
-      name: 'Cement',
-      category: 'Construction',
-      unit: 'Bag',
-      stock: 850,
-      rate: 420,
-      status: 'Active'
-    },
+  loading = false;
 
-    {
-      code: 'ITM-002',
-      name: 'Steel Bar 12mm',
-      category: 'Construction',
-      unit: 'Kg',
-      stock: 4250,
-      rate: 68,
-      status: 'Active'
-    },
+  constructor(
+    private itemService: ItemService
+  ) {}
 
-    {
-      code: 'ITM-003',
-      name: 'PVC Pipe',
-      category: 'Plumbing',
-      unit: 'Meter',
-      stock: 1250,
-      rate: 145,
-      status: 'Active'
-    },
+  ngOnInit(): void {
+    this.loadItems();
+  }
 
-    {
-      code: 'ITM-004',
-      name: 'Safety Helmet',
-      category: 'Safety',
-      unit: 'Nos',
-      stock: 120,
-      rate: 350,
-      status: 'Active'
-    },
+  loadItems(): void {
 
-    {
-      code: 'ITM-005',
-      name: 'Electrical Cable',
-      category: 'Electrical',
-      unit: 'Meter',
-      stock: 680,
-      rate: 95,
-      status: 'Inactive'
+    this.loading = true;
+
+    this.itemService.getItems().subscribe({
+      
+      next: (response) => {
+
+        this.items = response;
+
+        this.loading = false;
+
+      },
+
+      error: (error) => {
+
+        console.error('Error loading items:', error);
+
+        this.loading = false;
+
+      }
+
+    });
+
+  }
+
+  get filteredItems(): Item[] {
+
+    const search = this.searchText
+      .toLowerCase()
+      .trim();
+
+    if (!search) {
+      return this.items;
     }
 
-  ];
-
-  get filteredItems() {
-
-    const search =
-      this.searchText.toLowerCase();
-
     return this.items.filter(x =>
-      x.name.toLowerCase().includes(search) ||
-      x.code.toLowerCase().includes(search) ||
-      x.category.toLowerCase().includes(search)
+      x.name?.toLowerCase().includes(search) ||
+      x.code?.toLowerCase().includes(search) ||
+      x.category?.toLowerCase().includes(search)
     );
+
   }
 
 }
