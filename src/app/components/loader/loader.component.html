@@ -1,0 +1,40 @@
+<div class="erp-loader-overlay" *ngIf="loaderService.isLoading$ | async">
+  <div class="erp-loader-wrapper">
+    
+    <!-- Spinner Graphic -->
+    <div class="spinner-container">
+      <div class="ambient-glow"></div>
+      
+      <!-- Orbit Rings -->
+      <div class="ring outer-ring"></div>
+      <div class="ring middle-ring"></div>
+      <div class="ring inner-ring"></div>
+      
+      <!-- Center Icon -->
+      <div class="center-badge">
+        <div class="logo-box">
+          <span>i</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content / Typography -->
+    <div class="loader-content">
+      <div class="brand-header">
+        <span class="brand-name">Smart<strong>ERP</strong></span>
+      </div>
+      <div class="loading-status">
+        <span class="status-msg">Please wait</span>
+        <span class="dots">
+          <i></i><i></i><i></i>
+        </span>
+      </div>
+    </div>
+
+    <!-- Shimmering Progress Bar -->
+    <div class="progress-track">
+      <div class="progress-bar"></div>
+    </div>
+
+  </div>
+</div>

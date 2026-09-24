@@ -9,7 +9,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ItemsComponent } from './pages/items/items.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { StockIssueComponent } from './pages/stock-issue/stock-issue.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { LoaderComponent } from './components/loader/loader.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +22,20 @@ import { HttpClientModule } from '@angular/common/http';
     StockIssueComponent
   ],
   imports: [
-    BrowserModule,FormsModule,HttpClientModule,
-    AppRoutingModule,ItemsComponent
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ItemsComponent,
+    LoaderComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

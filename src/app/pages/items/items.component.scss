@@ -172,3 +172,33 @@ td strong {
 
   cursor: pointer;
 }
+
+.search-empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
+
+  p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .clear-search-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      background: #e2e8f0;
+    }
+  }
+}
+
+.no-data-game-container {
+  padding: 16px 20px;
+}

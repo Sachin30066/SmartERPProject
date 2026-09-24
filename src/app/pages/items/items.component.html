@@ -34,7 +34,8 @@
   </div>
 
 
-  <div class="table-wrapper">
+  <!-- Table when there is data -->
+  <div class="table-wrapper" *ngIf="!hasError && filteredItems.length > 0">
 
     <table>
 
@@ -114,6 +115,23 @@
 
     </table>
 
+  </div>
+
+  <!-- Search Filter Empty (Search did not match any items) -->
+  <div class="search-empty-state" *ngIf="!hasError && items.length > 0 && filteredItems.length === 0">
+    <p>No items found matching "<strong>{{ searchText }}</strong>"</p>
+    <button class="clear-search-btn" (click)="searchText = ''">
+      Clear Search
+    </button>
+  </div>
+
+  <!-- Failed / No Data Chrome Dino Game -->
+  <div class="no-data-game-container" *ngIf="hasError || (!loading && items.length === 0)">
+    <app-dino-game
+      [message]="hasError ? 'API Connection Failed' : 'No Data Available'"
+      [subMessage]="hasError ? 'Unable to fetch items from the server. Play the Dino runner while retrying!' : 'No items found in the inventory. Enjoy a quick run while we wait!'"
+      (retry)="loadItems()">
+    </app-dino-game>
   </div>
 
 </div>

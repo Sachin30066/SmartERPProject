@@ -1,0 +1,57 @@
+<div class="warehouse-game-wrapper">
+  
+  <!-- ERP Header Bar -->
+  <div class="game-header">
+    <div class="status-badge">
+      <span class="icon">📦</span>
+    </div>
+    <div class="header-info">
+      <div class="title-row">
+        <h3>{{ message }}</h3>
+        <span class="status-pill offline">OFFLINE MODE</span>
+      </div>
+      <p>{{ subMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Live Warehouse Metrics Dashboard -->
+  <div class="metrics-bar">
+    <div class="metric-card">
+      <span class="metric-label">SCORE</span>
+      <span class="metric-value">{{ score }}</span>
+    </div>
+
+    <div class="metric-card">
+      <span class="metric-label">BONUS PACKAGES</span>
+      <span class="metric-value highlight">🎁 {{ packagesCollected }}</span>
+    </div>
+
+    <div class="metric-card">
+      <span class="metric-label">BEST RECORD</span>
+      <span class="metric-value record">🏆 {{ highScore }}</span>
+    </div>
+  </div>
+
+  <!-- Game Canvas -->
+  <div class="canvas-viewport" (click)="handleCanvasClick()" title="Click or Tap to Jump">
+    <canvas #gameCanvas></canvas>
+  </div>
+
+  <!-- Industrial Controls & Actions -->
+  <div class="game-controls-bar">
+    <div class="controls-guide">
+      <span class="key-badge">Space</span> or <span class="key-badge">↑</span> Jump &bull; Collect golden packages for <strong>+50 pts</strong>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-jump" type="button" (click)="handleAction()">
+        ▲ Jump
+      </button>
+
+      <button class="btn-sync" type="button" (click)="onRetryClick()">
+        ↻ Sync Stock Data
+      </button>
+    </div>
+  </div>
+
+</div>
